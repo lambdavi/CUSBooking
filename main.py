@@ -7,6 +7,7 @@ import datetime
 NAME=""
 SURNAME=""
 EMAIL=""
+PATH_TO_WEBDRIVER=""
 
 def next_weekday(d, weekday):
     days_ahead = weekday - d.weekday()
@@ -24,7 +25,7 @@ if __name__ == "__main__":
         exit(1)
     else:
         print("Oggi e' giorno di prenotazioni")
-        webdriver = webdriver.Chrome('/home/davide/mydev/CUSBooking/chromedriver')
+        webdriver = webdriver.Chrome(PATH_TO_WEBDRIVER)
         sleep(2)
         webdriver.get('https://www.custorino.it/easy-sport/')
         sleep(3)
