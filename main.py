@@ -8,6 +8,12 @@ NAME=""
 SURNAME=""
 EMAIL=""
 
+def next_weekday(d, weekday):
+    days_ahead = weekday - d.weekday()
+    if days_ahead <= 0: # Target day already happened this week
+        days_ahead += 7
+    return d + datetime.timedelta(days_ahead)
+
 def get_weekday():
     return datetime.datetime.today().weekday()
 
@@ -15,6 +21,7 @@ if __name__ == "__main__":
     today = get_weekday()
     if today != 2 and today != 5:
         print("Oggi non e' giorno di prenotazioni")
+        exit(1)
     else:
         print("Oggi e' giorno di prenotazioni")
         webdriver = webdriver.Chrome('/home/davide/mydev/CUSBooking/chromedriver')
@@ -32,14 +39,24 @@ if __name__ == "__main__":
         sala_pesi.click()
         sleep(3)
         # Seleziono il giorno
+        d = datetime.datetime.today()
+        if today == 2:
+            next_monday = next_weekday(d, 0) # 0 = Monday, 1=Tuesday, 2=Wednesday...
+            print(next_monday.day)
+            next_day_to_book = next_monday.day
+            next_hour_to_book = "17:00 - 18:30"
+        else:
+            next_monday = next_weekday(d, 3) # 0 = Monday, 1=Tuesday, 2=Wednesday...
+            print(next_monday.day)
+            next_day_to_book = next_monday.day
+            next_hour_to_book = "18:30 - 20:00"
+
         webdriver.execute_script("window.scrollBy(0,700);")
-        sleep(1)
-        next_day_to_book = "14"
+        sleep(2)
         nextD = webdriver.find_elements_by_xpath(f"//*[contains(text(),'{next_day_to_book}')]")
         nextD[1].click()
         sleep(1)
         # Seleziono l'ora
-        next_hour_to_book = "17:00 - 18:30"
         nextH = webdriver.find_element_by_xpath(f"//*[contains(text(),'{next_hour_to_book}')]")
         #print(nextH.get_attribute('innerHTML'))
         nextH.click()
