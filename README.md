@@ -1,13 +1,12 @@
 <!-- ABOUT THE PROJECT -->
 # About The Project
 
-Piccolo progetto nato per la noia di prenotare in palestra ad un'ora precisa.
-Al momento e' funzionante e automatizzato usando Cron su Ubuntu 18.06.
-Verra' poi incapsulato in un setup e distribuito ad amici e parenti atletici.
-Attuali feature:
-* Scelta dei giorni della settimana
-* Flessibilità in base alla banda disponibile, il bot prenoterà quando la pagina sarà pronta, anche in caso di ritardi.
+Small project born out of boredom of booking a gym at a specific time.
+Currently, it is fully functional and automated using Cron on Ubuntu 18.06.
+It will be further encapsulated in a setup and distributed to athletic friends and relatives.
+Current features:
 
-N.B. Questo progetto nasce come passatempo, non mi prendo nessuna responsabilità su come verrà usato.
-
+Selection of weekdays
+Flexibility based on available bandwidth, the bot will make a reservation when the page is ready, even in case of delays.
+Note: This project is a hobby, and I take no responsibility for how it will be used.
 <p align="right">(<a href="#top">back to top</a>)</p>
